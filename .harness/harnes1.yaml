@@ -33,7 +33,7 @@ pipeline:
                   identifier: test
                   spec:
                     connectorRef: mydocker
-                    image: nodejs
+                    image: NodeJS
                     shell: Sh
                     command: "npm install\r\nnpm test"
               - step:
