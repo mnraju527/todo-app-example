@@ -21,7 +21,7 @@ pipeline:
             type: KubernetesDirect
             spec:
               connectorRef: account.accountharnessdelegatecluster
-              namespace: harness1
+              namespace: default
               automountServiceAccountToken: true
               nodeSelector: {}
               os: Linux
