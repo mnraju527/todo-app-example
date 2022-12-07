@@ -1,0 +1,48 @@
+pipeline:
+  name: h1
+  identifier: h1
+  projectIdentifier: UnitedPOC
+  orgIdentifier: default
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: mnraju527
+        build: <+input>
+  stages:
+    - stage:
+        name: buid
+        identifier: buid
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          infrastructure:
+            type: KubernetesDirect
+            spec:
+              connectorRef: account.accountharnessdelegatecluster
+              namespace: default
+              nodeSelector: {}
+              os: Linux
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: Run
+                  identifier: Run
+                  spec:
+                    connectorRef: account.accountdevopsdockerregistry
+                    image: node:16
+                    shell: Sh
+                    command: |-
+                      npm install
+                      npm test
+              - step:
+                  type: BuildAndPushDockerRegistry
+                  name: Build and Push an image to Docker Registry
+                  identifier: BuildandPushanimagetoDockerRegistry
+                  spec:
+                    connectorRef: account.accountdevopsdockerregistry
+                    repo: hrep
+                    tags:
+                      - hrep1
