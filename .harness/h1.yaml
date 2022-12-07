@@ -35,7 +35,7 @@ pipeline:
                     image: node:16
                     shell: Sh
                     command: |
-                      npm install nodejs
+                      npm install -g npm@9.1.3
                       node app.js
               - step:
                   type: BuildAndPushDockerRegistry
