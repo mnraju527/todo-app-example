@@ -25,7 +25,7 @@ pipeline:
                   identifier: Run
                   spec:
                     connectorRef: account.accountdevopsdockerregistry
-                    image: node 16
+                    image: 19-alpine3.15
                     shell: Sh
                     command: "npm install \r\nnpm test"
               - step:
