@@ -27,7 +27,7 @@ pipeline:
                     connectorRef: account.accountdevopsdockerregistry
                     image: node
                     shell: Sh
-                    command: "npm install\r\nnpm test"
+                    command: "npm install \r\nnpm test"
               - step:
                   type: BuildAndPushDockerRegistry
                   name: Build and Push an image to Docker Registry
